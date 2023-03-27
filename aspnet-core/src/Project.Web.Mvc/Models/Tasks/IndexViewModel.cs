@@ -18,9 +18,9 @@ namespace Project.Web.Models.Tasks
             switch (task.State)
             {
                 case TaskState.Open:
-                    return "label-success";
+                    return "badge-success";
                 default:
-                    return "label-default";
+                    return "badge-light";
             }
         }
     }
