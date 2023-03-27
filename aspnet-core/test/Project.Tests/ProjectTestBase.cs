@@ -14,6 +14,7 @@ using Project.EntityFrameworkCore;
 using Project.EntityFrameworkCore.Seed.Host;
 using Project.EntityFrameworkCore.Seed.Tenants;
 using Project.MultiTenancy;
+using Project.Tests.TestData;
 
 namespace Project.Tests
 {
@@ -21,6 +22,8 @@ namespace Project.Tests
     {
         protected ProjectTestBase()
         {
+            UsingDbContext(context => new TestDataBuilder(context).Build());
+
             void NormalizeDbContext(ProjectDbContext context)
             {
                 context.EntityChangeEventHelper = NullEntityChangeEventHelper.Instance;
